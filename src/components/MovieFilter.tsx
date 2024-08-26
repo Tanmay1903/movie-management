@@ -14,6 +14,12 @@ export default function MovieFilter({ onFilterSort }: FilterSortProps) {
     onFilterSort({ genre, sortBy });
   };
 
+  const handleClear = () => {
+    setGenre('');
+    setSortBy('');
+    onFilterSort({});
+  };
+
   return (
     <Grid container spacing={2} alignItems="center" className="mb-4">
       <Grid item xs={5}>
@@ -25,7 +31,7 @@ export default function MovieFilter({ onFilterSort }: FilterSortProps) {
           onChange={(e) => setGenre(e.target.value)}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <TextField
           label="Sort by"
           select
@@ -39,9 +45,14 @@ export default function MovieFilter({ onFilterSort }: FilterSortProps) {
           <MenuItem value="rating">Rating</MenuItem>
         </TextField>
       </Grid>
-      <Grid item xs={3}>
+      <Grid item xs={2}>
         <Button variant="contained" color="primary" fullWidth onClick={handleFilterSort}>
           Apply
+        </Button>
+      </Grid>
+      <Grid item xs={2}>
+        <Button variant="outlined" color="primary" fullWidth onClick={handleClear}>
+          Clear
         </Button>
       </Grid>
     </Grid>

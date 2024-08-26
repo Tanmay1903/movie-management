@@ -48,7 +48,7 @@ export default function MovieList({ movies, fetchMovies}: MovieListProps) {
   };
 
   if (movies.length === 0) {
-    return <Typography variant="h6">No movies available</Typography>;
+    return <Typography variant="h6">No movies available. Click on Add Movie to add one.</Typography>;
   }
 
   return (

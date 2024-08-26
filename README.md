@@ -53,13 +53,13 @@ Make sure you have the following installed:
 
     For a quick setup, I have used SQLite.
 
-4. Run database migrations:
+4. Run database migrations(If you want to run initial migrations to the database):
 
     ```bash
     pnpm prisma migrate dev --name init
     ```
 
-5. Seed the database:
+5. Seed the database(If you want to pre-fill the database):
 
     ```bash
     pnpm run seed

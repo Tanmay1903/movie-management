@@ -74,6 +74,7 @@ To run the application in development mode with hot-reloading:
 ```bash
 pnpm dev
 ```
+The app will be available at `http://localhost:3000`.
 
 ## Deploy on Vercel
 

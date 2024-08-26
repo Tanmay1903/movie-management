@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@prisma/client'
 import formidable, { File } from 'formidable';
 import path from 'path';
+import { promises as fs } from 'fs';
 
 const prisma = new PrismaClient()
 
@@ -55,8 +56,36 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(500).json({ message: 'Failed to save movie' });
     }
   } else if (req.method === 'DELETE') {
-    await prisma.movie.delete({ where: { id: Number(id) } })
-    res.status(204).end()
+    try {
+      const movie = await prisma.movie.findUnique({
+        where: { id: Number(id) },
+      });
+
+      if (!movie) {
+        res.status(404).json({ message: 'Movie not found' });
+        return;
+      }
+
+      if(!movie.posterUrl.includes("seed-uploads")) {
+        // Get the poster file path
+        const posterPath = path.join(process.cwd(), 'public', movie.posterUrl);
+
+        // Delete the poster file
+        try {
+          await fs.unlink(posterPath);
+        } catch (error) {
+          console.log(error, 'Error deleting poster file');
+        }
+      }
+
+      // Delete the movie record
+      await prisma.movie.delete({ where: { id: Number(id) } });
+
+      res.status(204).end();
+    } catch (error) {
+      console.error('Error deleting movie:', error);
+      res.status(500).json({ message: 'Failed to delete movie' });
+    }
   } else {
     res.status(405).json({ message: 'Method not allowed' })
   }

@@ -59,10 +59,10 @@ Make sure you have the following installed:
     pnpm prisma migrate dev --name init
     ```
 
-5. Seed the database (if you have any seed data):
+5. Seed the database:
 
     ```bash
-    pnpm prisma db seed
+    pnpm run seed
     ```
 
 ## Running the Application

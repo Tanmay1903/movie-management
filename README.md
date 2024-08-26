@@ -33,8 +33,8 @@ Make sure you have the following installed:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/movie-management-app.git
-    cd movie-management-app
+    git clone https://github.com/Tanmay1903/movie-management.git
+    cd movie-management
     ```
 
 2. Install dependencies:

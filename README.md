@@ -81,6 +81,8 @@ The app will be available at `http://localhost:3000`.
 ## Testing the Functionality
 
 ### 1. Testing the Code
+To ensure the reliability and correctness of the application, This project can be tested using a framework like `Jest` along with `React Testing Library`.
+
 ### 2. Core Functionalities
 This application includes the following core functionalities:
 
@@ -106,4 +108,9 @@ Data fetching and manipulation in this application are handled using Next.js's b
    - **Formidable for File Uploads:** File uploads (such as movie posters) are handled using the formidable package, which processes incoming form data, including files, and saves them to the server.
 
 ### 4. Optimizations Implemented
+To enhance the performance of the application, the following optimizations were implemented:
+
+1. Efficient Data Fetching: Using Next.js's getServerSideProps or getStaticProps for server-side data fetching ensures that data is preloaded on the server before rendering the page, reducing client-side load times.
+2. Code Splitting: Leveraging Next.js's built-in code splitting to load only the necessary JavaScript on each page, reducing the initial load time.
+3. Image Optimization: Utilizing Next.js's next/image component for automatic image optimization, ensuring that images are loaded in the appropriate format and size based on the user's device.
 

@@ -100,17 +100,16 @@ This application includes the following core functionalities:
 Data fetching and manipulation in this application are handled using Next.js's built-in features and Prisma:
 
 1. Data Fetching:
-   - Server-Side Rendering (SSR): Using getServerSideProps to fetch data on each request ensures that the user always sees the most up-to-date movie list.
+   - Server-Side Rendering (SSR): Using `getServerSideProps` to fetch data on each request ensures that the user always sees the most up-to-date movie list.
    - API Routes: Custom API routes are used to handle CRUD operations for movies, interfacing with the database via Prisma.
 
 2. Data Manipulation:
-   - **Prisma ORM:** Prisma is used to interact with the PostgreSQL database. It provides a type-safe query builder and handles the database schema migrations.
-   - **Formidable for File Uploads:** File uploads (such as movie posters) are handled using the formidable package, which processes incoming form data, including files, and saves them to the server.
+   - **Prisma ORM:** Prisma is used to interact with the SQLlite database(Can use other databases as well). It provides a type-safe query builder and handles the database schema migrations.
+   - **Formidable for File Uploads:** File uploads (such as movie posters) are handled using the `formidable` package, which processes incoming form data, including files, and saves them to the server.
 
 ### 4. Optimizations Implemented
 To enhance the performance of the application, the following optimizations were implemented:
 
-1. Efficient Data Fetching: Using Next.js's getServerSideProps or getStaticProps for server-side data fetching ensures that data is preloaded on the server before rendering the page, reducing client-side load times.
-2. Code Splitting: Leveraging Next.js's built-in code splitting to load only the necessary JavaScript on each page, reducing the initial load time.
-3. Image Optimization: Utilizing Next.js's next/image component for automatic image optimization, ensuring that images are loaded in the appropriate format and size based on the user's device.
+1. **Efficient Data Fetching:** Using Next.js's `getServerSideProps` or `getStaticProps` for server-side data fetching ensures that data is preloaded on the server before rendering the page, reducing client-side load times.
+2. **Code Splitting:** Leveraging Next.js's built-in code splitting to load only the necessary JavaScript on each page, reducing the initial load time.
 

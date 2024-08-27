@@ -42,6 +42,8 @@ Make sure you have the following installed:
     ```bash
     pnpm install
     ```
+    
+    Use command `npm install -g pnpm`, if you don't have pnpm installed already.
 
 3. Set up the environment variables:
 

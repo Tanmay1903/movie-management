@@ -78,8 +78,32 @@ pnpm dev
 ```
 The app will be available at `http://localhost:3000`.
 
-## Deploy on Vercel
+## Testing the Functionality
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 1. Testing the Code
+### 2. Core Functionalities
+This application includes the following core functionalities:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Adding Movies:
+   - Users can add new movies to the database by filling out a form with details such as title, genre, release date, rating, and a movie poster.
+   - Form validation ensures that all required fields are filled out correctly before submission.
+2. Editing Movies:
+   - Users can edit the details of an existing movie. The form is prefilled with the current details, allowing for easy updates.
+3. Deleting Movies:
+   - Users can delete a movie from the list. This action also removes the associated poster file from the server to avoid orphaned files.
+4. Filtering and Sorting:
+   - Users can filter movies by genre and sort them by release date or rating. This is handled on the client side to provide a smooth and responsive user experience.
+
+### 3. Data Fetching and Manipulation
+Data fetching and manipulation in this application are handled using Next.js's built-in features and Prisma:
+
+1. Data Fetching:
+   - Server-Side Rendering (SSR): Using getServerSideProps to fetch data on each request ensures that the user always sees the most up-to-date movie list.
+   - API Routes: Custom API routes are used to handle CRUD operations for movies, interfacing with the database via Prisma.
+
+2. Data Manipulation:
+   - **Prisma ORM:** Prisma is used to interact with the PostgreSQL database. It provides a type-safe query builder and handles the database schema migrations.
+   - **Formidable for File Uploads:** File uploads (such as movie posters) are handled using the formidable package, which processes incoming form data, including files, and saves them to the server.
+
+### 4. Optimizations Implemented
+
